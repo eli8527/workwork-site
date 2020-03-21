@@ -92,7 +92,7 @@
       <div class="header">
         <div class="header-left">
           <p><a class="break-word" href="<?= $siteURL ?>"><?= $siteName ?></a></p>
-          <p class="balance-text">Student work and experiments from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
+          <p class="balance-text">An archive of selected student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
         </div>
         <div class="header-right">
           <div class="search">
@@ -112,11 +112,11 @@
         <ul class="works">
           <?php foreach ($class['works'] as $work): ?>
             <li class="work">
-              <div class="work-image">
+              <!-- <div class="work-image"> -->
                 <a href="<?= $work['url'] ?>" target="_blank">
                   <img src="<?= $work['imgSrc'] ?>" loading="lazy">
                 </a>
-              </div>
+              <!-- </div> -->
               <p>
                 <a href="<?= $work['url'] ?>" target="_blank"><?= $work['name'] ?></a>, <?= $work['addendum'] ?>
               </p>
@@ -130,7 +130,7 @@
   <script src="/assets/balancetext.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      balanceText(document.getElementsByClassName('balance-text'));
+      balanceText(document.getElementsByClassName('balance-text'),{watch: true});
     });
   </script>
 </body>

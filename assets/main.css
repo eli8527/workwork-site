@@ -151,27 +151,25 @@ input[type="text"] {
 .work {
   margin-left: var(--block-margin);
   margin-top: var(--block-margin);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.work-image {
-  width: var(--max-width);
-  height: var(--max-height);
-
-  max-width: calc(100vw - 2 * var(--margin));
-  position: relative;
+.work img {
+  --ratio: calc(var(--max-width) / var(--max-height));
+  max-width: var(--max-width);
+  max-height: var(--max-height);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left bottom;
 
   margin-bottom: calc(0.5 * var(--block-margin));
 }
 
-.work img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: left bottom;
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   :root {
     --heading-size: 2.4rem;
     --body-size: 1.4rem;
@@ -196,5 +194,12 @@ input[type="text"] {
     width: 100%;
     margin-top: calc(1 * var(--margin));
     margin-left: initial;
+  }
+
+  .work img {
+    --adjusted-width: calc(100vw - 2 * var(--margin));
+    --adjusted-height: calc(( 1 / var(--ratio)) * var(--adjusted-width));
+    max-width: var(--adjusted-width);
+    max-height: var(--adjusted-height);
   }
 }
