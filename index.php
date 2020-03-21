@@ -115,7 +115,6 @@
         </ul>
       </div>
     <?php endforeach; ?>
-
   </div>
 
   <script src="/assets/balancetext.min.js"></script>
