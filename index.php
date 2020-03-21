@@ -78,11 +78,11 @@
 </head>
 <body style="--background-color: <?= $backgroundColor ?>; --text-color: <?= $textColor; ?>; --link-color: <?= $linkColor; ?>;">
   <div class="layout-wrapper">
-    <div class="layout-block heading">
+    <nav class="layout-block heading">
       <div class="header">
         <div class="header-left">
           <p><a class="break-word" href="<?= $siteURL ?>"><?= $siteName ?></a></p>
-          <p class="balance-text">Student work from <a href="<?= $nameURL ?>"><?= $name; ?></a>’s classes & workshops:</p>
+          <p class="balance-text">Student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
         </div>
         <div class="header-right">
           <div class="search">
@@ -93,7 +93,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </nav>
     <?php foreach($classes as $class): ?>
       <div class="layout-block class" style="--max-width: <?= $class['maxWidth'] ?>px; --max-height: <?= $class['maxHeight'] ?>px;">
         <div class="heading">

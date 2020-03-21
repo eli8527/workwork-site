@@ -60,6 +60,7 @@ a:hover {
 /* LAYOUT */
 .layout-wrapper {
   margin: var(--margin);
+  margin-top: initial;
 }
 
 .layout-block {
@@ -69,9 +70,8 @@ a:hover {
   border-top: 2px solid var(--text-color, #000);
 }
 
-.layout-block:first-of-type {
+.layout-block.class:first-of-type {
   border-top: initial;
-  padding-top: initial;
 }
 
 /* TYPOGRAPHY */
@@ -84,6 +84,14 @@ a:hover {
 }
 
 /* HEADER */
+.layout-block.heading {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  border-bottom: 2px solid var(--text-color, #000);
+  border-top: initial;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
