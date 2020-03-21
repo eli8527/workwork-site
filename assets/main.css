@@ -165,7 +165,7 @@ input[type="text"] {
 @media screen and (max-width: 1024px) {
   :root {
     --heading-size: 2.4rem;
-    --body-size: 1.2rem;
+    --body-size: 1.4rem;
 
     --block-margin: 1.5rem;
   }
@@ -173,7 +173,7 @@ input[type="text"] {
   .header {
     flex-direction: column;
   }
-  
+
   .header-left {
     width: 100%
   }
