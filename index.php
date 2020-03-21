@@ -87,7 +87,7 @@
         <div class="header-right">
           <div class="search">
             <form method="get" action="/">
-              <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" name="query" placeholder="..." value="">
+              <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" name="query" placeholder="..." value="<?php if (isset($_GET["query"])) { echo htmlspecialchars($_GET["query"]); }?>">
               <input type="submit" value="Submit" id="submit-button">
             </form>
           </div>
