@@ -1,0 +1,186 @@
+/* CSS VARIABLES */
+:root {
+  --heading-size: 3.6rem;
+  --body-size: 1.6rem;
+
+  --margin: 1.5rem;
+  --block-margin: 2.5rem;
+
+  --header-right-width: 300px;
+
+  --font-family: Helvetica, Arial, sans-serif;
+
+}
+
+/* RESET/GLOBAL */
+*,
+*:after,
+*:before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* Now 10px = 1rem! */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--body-size);
+
+  background-color: var(--background-color, #888);
+  color: var(--text-color, #000);
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: var(--link-color, #fff);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LAYOUT */
+.layout-wrapper {
+  margin: var(--margin);
+}
+
+.layout-block {
+  padding-top: var(--block-margin);
+  padding-bottom: var(--block-margin);
+
+  border-top: 2px solid var(--text-color, #000);
+}
+
+.layout-block:first-of-type {
+  border-top: initial;
+  padding-top: initial;
+}
+
+/* TYPOGRAPHY */
+.heading {
+  font-size: var(--heading-size);
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  width: calc(100% - var(--header-right-width));
+}
+
+.header-right {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: calc(2 * var(--margin));
+  width: var(--header-right-width);
+}
+
+#submit-button {
+  display: none;
+}
+
+input[type="text"] {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  border-color: black;
+  text-align: center;
+  outline: none;
+  width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+/* CLASSES */
+.class .heading {
+  margin-bottom: var(--block-margin);
+}
+
+/* WORKS */
+.works {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-left: calc(-1 * var(--block-margin));
+  margin-top: calc(-1 * var(--block-margin));
+}
+
+.work {
+  margin-left: var(--block-margin);
+  margin-top: var(--block-margin);
+}
+
+.work-image {
+  width: var(--max-width);
+  height: var(--max-height);
+
+  max-width: calc(100vw - 2 * var(--margin));
+  position: relative;
+
+  margin-bottom: calc(0.5 * var(--block-margin));
+}
+
+.work img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --heading-size: 2.4rem;
+    --body-size: 1.2rem;
+
+    --block-margin: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+  
+  .header-left {
+    width: 100%
+  }
+
+  .header-right {
+    width: 100%;
+    margin-top: calc(1 * var(--margin));
+    margin-left: initial;
+  }
+}
