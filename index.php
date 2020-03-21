@@ -122,7 +122,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       balanceText(document.getElementsByClassName('balance-text'));
-    })
+    });
   </script>
 </body>
 </html>
