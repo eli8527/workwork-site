@@ -3,7 +3,7 @@
   --heading-size: 3.6rem;
   --body-size: 1.5rem;
 
-  --margin: 1.5rem;
+  --margin: 2.3rem;
   --block-margin: 2.5rem;
 
   --header-right-width: 300px;
@@ -176,6 +176,7 @@ input[type="text"] {
     --heading-size: 2.4rem;
     --body-size: 1.4rem;
 
+    --margin: 0.9rem;
     --block-margin: 1.5rem;
   }
 
