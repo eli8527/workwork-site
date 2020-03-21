@@ -90,6 +90,7 @@ a:hover {
   z-index: 1;
   border-bottom: 2px solid var(--text-color, #000);
   border-top: initial;
+  background-color: var(--background-color, #888);
 }
 
 .header {
@@ -176,6 +177,10 @@ input[type="text"] {
     --body-size: 1.4rem;
 
     --block-margin: 1.5rem;
+  }
+
+  .layout-block.heading {
+    position: initial;
   }
 
   .header {
