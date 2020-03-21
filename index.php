@@ -26,7 +26,11 @@
     foreach ($contents as $content) {
       $contentInfo = array_map('trim', explode('_', $content));
       $urlBase = array_map('trim', explode(' ', $contentInfo[3]))[0];
-      $workUrl = '//' . str_replace(':', '/', $urlBase);
+      $urlBase = str_replace(':', '/', $urlBase);
+      $workUrl = '//' . $urlBase;
+      if (strpos($urlBase, '@') !== false) {
+        $workUrl = 'mailto:' . $urlBase;
+      }
 
       $work = array(
         "key" => floatval($contentInfo[0]),
