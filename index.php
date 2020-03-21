@@ -9,6 +9,10 @@
 
   $hasQuery = $query !== "";
 
+  function sort_by_key($a, $b) {
+    return $a['key'] <=> $b['key'];
+  }
+
   $folders = array_diff(scandir($contentDir), array('..', '.', '.DS_Store'));
 
   $classes = array();
@@ -25,6 +29,7 @@
       $workUrl = '//' . str_replace(':', '/', $urlBase);
 
       $work = array(
+        "key" => floatval($contentInfo[0]),
         "name" => $contentInfo[1],
         "addendum" => $contentInfo[2],
         "url" => $workUrl,
@@ -46,7 +51,10 @@
       }
     }
 
+    usort($works, "sort_by_key");
+
     $class = array(
+      "key" => floatval($folderInfo[0]),
       "title" => $folderInfo[1],
       "maxWidth" => $folderInfo[2],
       "maxHeight" => $folderInfo[3],
@@ -57,6 +65,8 @@
       $classes []= $class;
     }
   }
+
+  usort($classes, "sort_by_key");
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,7 +92,7 @@
       <div class="header">
         <div class="header-left">
           <p><a class="break-word" href="<?= $siteURL ?>"><?= $siteName ?></a></p>
-          <p class="balance-text">Student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
+          <p class="balance-text">Student work and experiments from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
         </div>
         <div class="header-right">
           <div class="search">
