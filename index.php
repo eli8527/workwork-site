@@ -37,12 +37,19 @@
         continue;
       }
 
+      $mime = mime_content_type($currentDir . $content);
+      $type = 'image';
+      if (strpos($mime, 'video') !== false) {
+        $type = 'video';
+      }
+
       $work = array(
         "key" => floatval($key),
         "name" => $contentInfo[1],
         "addendum" => $contentInfo[2],
         "url" => $workUrl,
-        "imgSrc" => htmlentities($currentDir . $content)
+        "src" => htmlentities($currentDir . $content),
+        "type" => $type,
       );
 
       $workMatch = false;
@@ -126,11 +133,14 @@
         <ul class="works">
           <?php foreach ($class['works'] as $work): ?>
             <li class="work">
-              <!-- <div class="work-image"> -->
                 <a href="<?= $work['url'] ?>" target="_blank">
-                  <img src="<?= $work['imgSrc'] ?>" loading="lazy">
+                  <?php if($work['type'] == 'image'): ?>
+                    <img class="media" src="<?= $work['src'] ?>" loading="lazy">
+                  <?php elseif($work['type'] == 'video'): ?>
+                    <video class="media" src="<?= $work['src'] ?>" autoplay muted playsinline loop>
+                    </video>
+                  <?php endif; ?>
                 </a>
-              <!-- </div> -->
               <p>
                 <a href="<?= $work['url'] ?>" target="_blank"><?= $work['name'] ?></a>, <?= $work['addendum'] ?>
               </p>

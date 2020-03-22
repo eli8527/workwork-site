@@ -157,7 +157,7 @@ input[type="text"] {
   justify-content: flex-end;
 }
 
-.work img {
+.work .media {
   --ratio: calc(var(--max-width) / var(--max-height));
   max-width: var(--max-width);
   max-height: var(--max-height);
@@ -196,7 +196,7 @@ input[type="text"] {
     margin-left: initial;
   }
 
-  .work img {
+  .work .media {
     --adjusted-width: calc(100vw - 2 * var(--margin));
     --adjusted-height: calc(( 1 / var(--ratio)) * var(--adjusted-width));
     max-width: var(--adjusted-width);
