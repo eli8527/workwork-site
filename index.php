@@ -109,11 +109,16 @@
 </head>
 <body style="--background-color: <?= $backgroundColor ?>; --text-color: <?= $textColor; ?>; --link-color: <?= $linkColor; ?>;">
   <div class="layout-wrapper">
+    <nav class="layout-block pre-heading">
+      <p class="heading balance-text">
+        Rigorous and experimental making
+      </p>
+    </nav>
     <nav class="layout-block heading">
       <div class="header">
         <div class="header-left">
           <p><a class="break-word" href="<?= $siteURL ?>"><?= $siteName ?></a></p>
-          <p class="balance-text">An archive of selected student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
+          <p class="balance-text">An archive of student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
         </div>
         <div class="header-right">
           <div class="search">

@@ -84,6 +84,15 @@ a:hover {
 }
 
 /* HEADER */
+
+.layout-block.pre-heading {
+  border-top: initial;
+  padding-bottom: initial;
+  position: relative;
+  z-index: 2;
+  margin-bottom: calc(-1 * var(--block-margin));
+}
+
 .layout-block.heading {
   position: sticky;
   top: 0px;
