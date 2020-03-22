@@ -90,6 +90,7 @@ a:hover {
   padding-bottom: initial;
   position: relative;
   z-index: 2;
+  -webkit-transform: translate3d(0,0,0);
   margin-bottom: calc(-1 * var(--block-margin));
 }
 
