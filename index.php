@@ -111,7 +111,7 @@
   <div class="layout-wrapper">
     <nav class="layout-block pre-heading">
       <p class="heading balance-text">
-        Rigorous and experimental making
+        Experimentation and play.
       </p>
     </nav>
     <nav class="layout-block heading">
