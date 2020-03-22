@@ -32,8 +32,13 @@
         $workUrl = 'mailto:' . $urlBase;
       }
 
+      $key = $contentInfo[0];
+      if (!is_numeric($key) || floatval($key <= 0)) {
+        continue;
+      }
+
       $work = array(
-        "key" => floatval($contentInfo[0]),
+        "key" => floatval($key),
         "name" => $contentInfo[1],
         "addendum" => $contentInfo[2],
         "url" => $workUrl,
