@@ -140,7 +140,7 @@
             <li class="work">
                 <a href="<?= $work['url'] ?>" target="_blank">
                   <?php if($work['type'] == 'image'): ?>
-                    <img class="media" src="<?= $work['src'] ?>" loading="lazy">
+                    <img class="media lazy" data-src="<?= $work['src'] ?>">
                   <?php elseif($work['type'] == 'video'): ?>
                     <video class="media" src="<?= $work['src'] ?>" autoplay muted playsinline loop>
                     </video>
@@ -160,6 +160,26 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       balanceText(document.getElementsByClassName('balance-text'),{watch: true});
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove("lazy");
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      }, {rootMargin: "0px 0px 256px 0px"});
     });
   </script>
 </body>
