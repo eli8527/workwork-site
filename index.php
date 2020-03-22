@@ -57,8 +57,13 @@
 
     usort($works, "sort_by_key");
 
+    $key = $folderInfo[0];
+    if (!is_numeric($key) || floatval($key <= 0)) {
+      continue;
+    }
+
     $class = array(
-      "key" => floatval($folderInfo[0]),
+      "key" => floatval($key),
       "title" => $folderInfo[1],
       "maxWidth" => $folderInfo[2],
       "maxHeight" => $folderInfo[3],
