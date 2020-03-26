@@ -27,7 +27,7 @@
       $contentInfo = array_map('trim', explode('_', $content));
       $urlBase = array_map('trim', explode(' ', $contentInfo[3]))[0];
       $urlBase = str_replace(':', '/', $urlBase);
-      $workUrl = '//' . $urlBase;
+      $workUrl = 'http://' . $urlBase;
       if (strpos($urlBase, '@') !== false) {
         $workUrl = 'mailto:' . $urlBase;
       }
