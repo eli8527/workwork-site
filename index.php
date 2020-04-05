@@ -17,14 +17,14 @@
 
   $classes = array();
   foreach ($folders as $folder) {
-    $folderInfo = array_map('trim', explode('_', $folder));
+    $folderInfo = array_map('trim', explode(' _ ', $folder));
     $currentDir = $contentDir . $folder . '/';
     $contents = array_diff(scandir($currentDir), array('..', '.', '.DS_Store'));
 
     $works = array();
     $classMatch = false;
     foreach ($contents as $content) {
-      $contentInfo = array_map('trim', explode('_', $content));
+      $contentInfo = array_map('trim', explode(' _ ', $content));
       $urlBase = array_map('trim', explode(' ', $contentInfo[3]))[0];
       $urlBase = str_replace(':', '/', $urlBase);
       $workUrl = 'http://' . $urlBase;
