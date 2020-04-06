@@ -206,8 +206,8 @@ input[type="text"] {
     margin-left: initial;
   }
 
-  .work .media {
-    --adjusted-width: calc(100vw - 2 * var(--margin));
+  .work .media, .work p {
+    --adjusted-width: calc(50vw - 2 * var(--margin));
     --adjusted-height: calc(( 1 / var(--ratio)) * var(--adjusted-width));
     max-width: var(--adjusted-width);
     max-height: var(--adjusted-height);
