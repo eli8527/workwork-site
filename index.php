@@ -131,7 +131,7 @@
       </div>
     </nav>
     <?php foreach($classes as $class): ?>
-      <div class="layout-block class" style="--max-width: <?= $class['maxWidth'] ?>px; --max-height: <?= $class['maxHeight'] ?>px;">
+      <div class="layout-block class" style="--max-width: <?= $class['maxWidth'] ?>px; --max-height: <?= $class['maxHeight'] ?>px; --ratio: <?= $class['maxWidth'] / $class['maxHeight']; ?>">
         <div class="heading">
           <p class="balance-text"><?= $class['title'] ?></p>
         </div>

@@ -168,7 +168,6 @@ input[type="text"] {
 }
 
 .work .media {
-  --ratio: calc(var(--max-width) / var(--max-height));
   max-width: var(--max-width);
   max-height: var(--max-height);
   width: auto;
