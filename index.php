@@ -41,7 +41,7 @@
         $show_if_excerpted = true;
       }
 
-      if (!is_numeric($key) || floatval($key <= 0)) {
+      if (!is_numeric($key) || floatval($key) <= 0) {
         continue;
       }
 
@@ -86,7 +86,7 @@
       $excerpted = true;
     }
 
-    if (!is_numeric($key) || floatval($key <= 0)) {
+    if (!is_numeric($key) || floatval($key) <= 0) {
       continue;
     }
 
@@ -181,7 +181,7 @@
             <li class="work more heading">
               <p>
                 <a href="javascript:;" class="show-more-link">
-                  more...
+                  More...
                 </a>
               </p>
             </li>
@@ -200,9 +200,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       [].forEach.call(document.getElementsByClassName('show-more-link'), (el) => {
         el.addEventListener('click', (e) => {
-          let hidden = el.parentElement.parentElement.parentElement.getElementsByClassName('hidden');
+          let hidden = el.parentElement.parentElement.parentElement.querySelectorAll('.hidden');
           [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.remove('hidden'));
-          el.remove();
+          el.parentElement.parentElement.remove();
         });
       });
     });
