@@ -157,7 +157,7 @@
               <li
                 class="
                   work
-                  <?php if (($class['excerpted'] && $work['show_if_excerpted']) || !$class['excerpted']): ?>
+                  <?php if (($class['excerpted'] && $work['show_if_excerpted']) || !$class['excerpted'] || $hasQuery): ?>
                     active
                   <?php else: ?>
                     hidden
@@ -177,7 +177,7 @@
               </p>
             </li>
           <?php endforeach; ?>
-          <?php if ($class['excerpted']): ?>
+          <?php if ($class['excerpted'] && !$hasQuery): ?>
             <li class="work more heading">
               <p>
                 <a href="javascript:;" class="show-more-link">
