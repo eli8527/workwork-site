@@ -186,6 +186,10 @@ input[type="text"] {
   margin-bottom: calc(0.5 * var(--block-margin));
 }
 
+.work.more p {
+  margin-top: -0.2em;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --heading-size: 2.4rem;
