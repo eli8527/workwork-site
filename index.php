@@ -32,7 +32,15 @@
         $workUrl = 'mailto:' . $urlBase;
       }
 
-      $key = $contentInfo[0];
+
+      $contentDisplayInfo = explode(' ', $contentInfo[0]);
+      $key = $contentDisplayInfo[0];
+      $show_if_excerpted = false;
+
+      if (sizeof($contentDisplayInfo) > 1 && $contentDisplayInfo[1] == '+') {
+        $show_if_excerpted = true;
+      }
+
       if (!is_numeric($key) || floatval($key <= 0)) {
         continue;
       }
@@ -50,6 +58,7 @@
         "url" => $workUrl,
         "src" => htmlentities($currentDir . $content),
         "type" => $type,
+        "show_if_excerpted" => $show_if_excerpted,
       );
 
       $workMatch = false;
@@ -69,7 +78,14 @@
 
     usort($works, "sort_by_key");
 
-    $key = $folderInfo[0];
+    $displayInfo = explode(' ', $folderInfo[0]);
+    $key = $displayInfo[0];
+    $excerpted = false;
+
+    if (sizeof($displayInfo) > 1 && $displayInfo[1] == '+') {
+      $excerpted = true;
+    }
+
     if (!is_numeric($key) || floatval($key <= 0)) {
       continue;
     }
@@ -79,7 +95,8 @@
       "title" => $folderInfo[1],
       "maxWidth" => $folderInfo[2],
       "maxHeight" => $folderInfo[3],
-      "works" => $works
+      "works" => $works,
+      "excerpted" => $excerpted,
     );
 
     if (!$hasQuery || ($hasQuery && $classMatch)) {
@@ -137,7 +154,16 @@
         </div>
         <ul class="works">
           <?php foreach ($class['works'] as $work): ?>
-            <li class="work">
+              <li
+                class="
+                  work
+                  <?php if (($class['excerpted'] && $work['show_if_excerpted']) || !$class['excerpted']): ?>
+                    active
+                  <?php else: ?>
+                    hidden
+                  <?php endif; ?>
+                  "
+                >
                 <a href="<?= $work['url'] ?>" target="_blank">
                   <?php if($work['type'] == 'image'): ?>
                     <img class="media lazy" data-src="<?= $work['src'] ?>">
@@ -151,6 +177,15 @@
               </p>
             </li>
           <?php endforeach; ?>
+          <?php if ($class['excerpted']): ?>
+            <li class="work more heading">
+              <p>
+                <a href="javascript:;" class="show-more-link">
+                  more...
+                </a>
+              </p>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
     <?php endforeach; ?>
@@ -160,6 +195,15 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       balanceText(document.getElementsByClassName('balance-text'),{watch: true});
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      [].forEach.call(document.getElementsByClassName('show-more-link'), (el) => {
+        el.addEventListener('click', (e) => {
+          let hidden = el.parentElement.parentElement.parentElement.getElementsByClassName('hidden');
+          [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.remove('hidden'));
+        });
+      });
     });
 
     document.addEventListener("DOMContentLoaded", function() {

@@ -167,6 +167,14 @@ input[type="text"] {
   justify-content: flex-start;
 }
 
+.work.active {
+  display: flex;
+}
+
+.work.hidden {
+  display: none;
+}
+
 .work .media {
   max-width: var(--max-width);
   max-height: var(--max-height);
