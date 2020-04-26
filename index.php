@@ -202,6 +202,7 @@
         el.addEventListener('click', (e) => {
           let hidden = el.parentElement.parentElement.parentElement.getElementsByClassName('hidden');
           [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.remove('hidden'));
+          el.remove();
         });
       });
     });
