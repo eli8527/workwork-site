@@ -135,7 +135,7 @@
       <div class="header">
         <div class="header-left">
           <p><a class="break-word" href="<?= $siteURL ?>"><?= $siteName ?></a></p>
-          <p class="balance-text">An archive of student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
+          <p class="balance-text">Some student work from <a href="<?= $nameURL ?>" target="_blank"><?= $name; ?></a>’s classes & workshops:</p>
         </div>
         <div class="header-right">
           <div class="search">
