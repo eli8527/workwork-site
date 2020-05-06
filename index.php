@@ -201,8 +201,15 @@
       [].forEach.call(document.getElementsByClassName('show-more-link'), (el) => {
         el.addEventListener('click', (e) => {
           let hidden = el.parentElement.parentElement.parentElement.querySelectorAll('.hidden');
-          [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.remove('hidden'));
-          el.parentElement.parentElement.remove();
+          [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.toggle('active'));
+          console.log(el.innerHTML);
+          if (el.dataset.active) {
+            el.innerHTML = 'More...';
+            delete el.dataset.active;
+          } else {
+            el.innerHTML = 'Less...';
+            el.dataset.active = true;
+          }
         });
       });
     });

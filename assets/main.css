@@ -175,6 +175,10 @@ input[type="text"] {
   display: none;
 }
 
+.work.hidden.active {
+  display: flex;
+}
+
 .work .media {
   max-width: var(--max-width);
   max-height: var(--max-height);
