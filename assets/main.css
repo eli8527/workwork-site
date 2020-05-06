@@ -68,12 +68,17 @@ a:hover {
   padding-bottom: var(--block-margin);
 
   border-top: 2px solid var(--text-color, #000);
-
-  scroll-margin-top: 20vh;
 }
 
 .layout-block.class:first-of-type {
   border-top: initial;
+}
+
+.layout-block .anchor {
+  display: block;
+  position: relative;
+  top: -30vh;
+  visibility: hidden;
 }
 
 /* TYPOGRAPHY */

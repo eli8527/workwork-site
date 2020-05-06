@@ -149,6 +149,7 @@
     </nav>
     <?php foreach($classes as $class): ?>
       <div class="layout-block class" style="--max-width: <?= $class['maxWidth'] ?>px; --max-height: <?= $class['maxHeight'] ?>px; --ratio: <?= $class['maxWidth'] / $class['maxHeight']; ?>">
+        <div class="anchor"></div>
         <div class="heading">
           <p class="balance-text"><?= $class['title'] ?></p>
         </div>
@@ -202,10 +203,9 @@
         el.addEventListener('click', (e) => {
           let hidden = el.parentElement.parentElement.parentElement.querySelectorAll('.hidden');
           [].forEach.call(hidden, (hiddenEl) => hiddenEl.classList.toggle('active'));
-          console.log(el.innerHTML);
           if (el.dataset.active) {
             el.innerHTML = 'More...';
-            el.parentElement.parentElement.parentElement.parentElement.scrollIntoView(true);
+            el.parentElement.parentElement.parentElement.parentElement.querySelector('.anchor').scrollIntoView(true);
             delete el.dataset.active;
           } else {
             el.innerHTML = 'Less...';
