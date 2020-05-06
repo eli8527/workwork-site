@@ -205,6 +205,7 @@
           console.log(el.innerHTML);
           if (el.dataset.active) {
             el.innerHTML = 'More...';
+            el.parentElement.parentElement.parentElement.parentElement.scrollIntoView(true);
             delete el.dataset.active;
           } else {
             el.innerHTML = 'Less...';
